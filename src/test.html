@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+        // concat, fileter, map, slice, 스프레드(전개) 연산자
+        const a = [1,2,3];
+        const b = [...a];
+
+    console.log("1. ========== 스프레드 연산자");
+        b.push(4);// b의 데이터 변경
+        console.log('a의 값은 : ' + a);
+        console.log('b의 값은 : ' + b);
+
+    console.log("2. ========== 추가하기");
+        const a2 = [1,2,3];
+        const b2 = a2.concat(4);
+        // 불변함수 : concat -> a2에 4라는 값을 입력하고 b2에 담은 것.
+        // a2.concat(4); 만 선언하면 어딘가에 담지 않았기 때문에 a2를 출력했을 때 1,2,3만 출력이 됨.
+        // ** push는 불변함수XXX
+        // a2.push(4); 라고 선언하면 a2의 값이 1,2,3,4로 바뀌기 때문.
+        console.log('a2의 값은 : ' + a2);
+        console.log('b2의 값은 : ' + b2);
+
+        const c2 = [0, ...a2, 4];
+        console.log('c2의 값은 : ' + c2) ;
+
+    console.log("3. ========== 걸러내기"); // 삭제하기
+        const a3 = [1,2,3];
+        const b3 = a3.filter((n)=>{return n != 1;}); // bool을 return받는다. -> true만 걸러낸다.
+        console.log('b3의 값은 : ' + b3); // 2,3
+
+    console.log("4. ========== 잘라내기");
+        const a4 = [1,2,3];
+        const b4 = a4.slice(0,2);
+        console.log(b4); // [1,2] -> 0, 1번째만 출력, 2의 직전까지만!
+
+        const c4 = [...a4.slice(0,2), 4, ...a3.slice(2,3)];
+        console.log(c4); // [1,2,4,3]
+
+    console.log("5. ========== 반복하기");
+        const a5 = [1,2,3];
+        // for(let i = 0; i <a5.length; i++){
+        //     console.log(a5[i]);
+        // }
+
+        // const c5 = a5.forEach((n)=>{console.log(n)});
+        // console.log(c5);
+
+        const b5 = a5.map((n)=>{return n}); // const b5 = [...a5];
+        console.log(b5);
+
+    console.log("6. ========== 수정하기");
+        const data = {phone:"1212"};
+
+        const a6 = {id:1, name:"예스미란"};
+        // const b6 = {...a6, name :"예스맨222"};
+        const b6 = {...a6, ...data};
+        console.log(b6);
+
+
+        const users = [
+            {id : 1, name : "예스미란", phone:"2222"},
+            {id : 2, name : "예스맨", phone:"3333"},
+            {id : 3, name : "노미란", phone:"4444"}
+        ];
+
+        const updateUserDto = { // id 2번의 이름을 바꾸고 싶을 때, 어떻게 해야할까
+            id:2, name : "홍길동"
+        };
+
+        // users[1].name = updateUserDto.name;
+        // console.log(users);
+        // 이렇게 하면 결과는 나오지만 올바른 방법은 아니다.
+        // 기존 데이터가 변경이 됐기 때문
+
+        const newUsers = users.map(
+            u=>u.id===updateUserDto.id ? {...u, ...updateUserDto}:u); // const newUsers = [...users];
+        console.log("newUsers", newUsers);
+</script>
+</body>
+</html>
