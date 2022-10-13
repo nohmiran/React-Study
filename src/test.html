@@ -12,8 +12,8 @@
 
     console.log("1. ========== 스프레드 연산자");
         b.push(4);// b의 데이터 변경
-        console.log('a의 값은 : ' + a);
-        console.log('b의 값은 : ' + b);
+        console.log('a의 값은 : ', a);
+        console.log('b의 값은 : ', b);
 
     console.log("2. ========== 추가하기");
         const a2 = [1,2,3];
@@ -22,16 +22,16 @@
         // a2.concat(4); 만 선언하면 어딘가에 담지 않았기 때문에 a2를 출력했을 때 1,2,3만 출력이 됨.
         // ** push는 불변함수XXX
         // a2.push(4); 라고 선언하면 a2의 값이 1,2,3,4로 바뀌기 때문.
-        console.log('a2의 값은 : ' + a2);
-        console.log('b2의 값은 : ' + b2);
+        console.log('a2의 값은 : ', a2);
+        console.log('b2의 값은 : ', b2);
 
         const c2 = [0, ...a2, 4];
-        console.log('c2의 값은 : ' + c2) ;
+        console.log('c2의 값은 : ', c2) ;
 
     console.log("3. ========== 걸러내기"); // 삭제하기
         const a3 = [1,2,3];
         const b3 = a3.filter((n)=>{return n != 1;}); // bool을 return받는다. -> true만 걸러낸다.
-        console.log('b3의 값은 : ' + b3); // 2,3
+        console.log('b3의 값은 : ', b3); // 2,3
 
     console.log("4. ========== 잘라내기");
         const a4 = [1,2,3];
