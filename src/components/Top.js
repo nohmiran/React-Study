@@ -1,14 +1,16 @@
 import React from 'react';
 import "../App2.css"
+import {useSelector} from "react-redux";
 
-const Top = (props) => {
+const Top = () => {
 
-    const {number} = props;
+    const {number,username} = useSelector((store) => store);
 
     return (
         <div className="sub_container">
             <h1>Top</h1>
-            번호 : {number}
+            번호 :{number}
+            이름 :{username}
         </div>
     );
 };
