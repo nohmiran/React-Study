@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 
 const App = () => {
-    const[data,setData] = useState(0);
+    const [data, setData] = useState(0);
 
-    const[search,setSearch] = useState(0);
+    const [search, setSearch] = useState(0);
 
-    const download =()=>{
+    const download = () => {
         //다운로드 받고(통신)
         let downloadData = 5; // 가정
         setData(downloadData);
@@ -19,13 +19,19 @@ const App = () => {
     useEffect(() => {
         console.log('useEffect 실행됨')
         download();
-    },[search]);
+    }, [search]);
 
     return (
         <div>
             <h1>데이터 : {data}</h1>
-            <button onClick={()=>{setData(data+1)}}>더하기</button>
-            <button onClick={()=>{setSearch(2)}}>검색하기</button>
+            <button onClick={() => {
+                setData(data + 1)
+            }}>더하기
+            </button>
+            <button onClick={() => {
+                setSearch(2)
+            }}>검색하기
+            </button>
         </div>
     );
 };
